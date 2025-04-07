@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		635513B32D9F28DC004A8D31 /* YS Display-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 635513B22D9F28DC004A8D31 /* YS Display-Bold.ttf */; };
-		635513B52D9F28E8004A8D31 /* YS Display-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 635513B42D9F28E8004A8D31 /* YS Display-Medium.ttf */; };
+		63ED8A8A2DA43D7200A30C7B /* YS Display-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 635513B42D9F28E8004A8D31 /* YS Display-Medium.ttf */; };
+		63ED8A8B2DA43D7700A30C7B /* YS Display-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 635513B22D9F28DC004A8D31 /* YS Display-Bold.ttf */; };
 		AD1ABAB22831907B00B3E448 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1ABAB12831907B00B3E448 /* AppDelegate.swift */; };
 		AD1ABAB42831907B00B3E448 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1ABAB32831907B00B3E448 /* SceneDelegate.swift */; };
 		AD1ABAB62831907B00B3E448 /* MovieQuizViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1ABAB52831907B00B3E448 /* MovieQuizViewController.swift */; };
@@ -181,9 +181,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				635513B52D9F28E8004A8D31 /* YS Display-Medium.ttf in Resources */,
-				635513B32D9F28DC004A8D31 /* YS Display-Bold.ttf in Resources */,
 				AD1ABABE2831907F00B3E448 /* LaunchScreen.storyboard in Resources */,
+				63ED8A8A2DA43D7200A30C7B /* YS Display-Medium.ttf in Resources */,
+				63ED8A8B2DA43D7700A30C7B /* YS Display-Bold.ttf in Resources */,
 				AD1ABABB2831907F00B3E448 /* Assets.xcassets in Resources */,
 				AD1ABAB92831907B00B3E448 /* Main.storyboard in Resources */,
 			);

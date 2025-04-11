@@ -1,33 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_0" orientation="portrait" appearance="dark"/>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_12" orientation="portrait" appearance="dark"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="YS Display-Bold.ttf">
+            <string>YSDisplay-Bold</string>
+        </array>
+        <array key="YS Display-Medium.ttf">
+            <string>YSDisplay-Medium</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--Movie Quiz View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MovieQuizViewController" customModule="MovieQuiz" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="101" translatesAutoresizingMaskIntoConstraints="NO" id="8aE-Wx-oJf">
-                                <rect key="frame" x="20" y="57" width="350" height="24"/>
+                                <rect key="frame" x="20" y="128" width="353" height="24"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Вопрос:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D5J-xc-2w7" userLabel="Question Title Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="124.66666666666667" height="24"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="126" height="24"/>
                                         <fontDescription key="fontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="20"/>
                                         <color key="textColor" name="YP White (iOS)"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1/10" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLH-nf-TEJ" userLabel="Index Label">
-                                        <rect key="frame" x="225.66666666666666" y="0.0" width="124.33333333333334" height="24"/>
+                                        <rect key="frame" x="227" y="0.0" width="126" height="24"/>
                                         <color key="tintColor" name="YP White (iOS)"/>
                                         <fontDescription key="fontDescription" name="YSDisplay-Medium" family="YS Display" pointSize="20"/>
                                         <color key="textColor" name="YP White (iOS)"/>
@@ -40,7 +48,7 @@
                                 </constraints>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="The Godfather" translatesAutoresizingMaskIntoConstraints="NO" id="cpx-De-gsq" userLabel="Preview Image">
-                                <rect key="frame" x="20" y="101" width="350" height="525"/>
+                                <rect key="frame" x="20" y="172" width="353" height="529.66666666666663"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="cpx-De-gsq" secondAttribute="height" multiplier="2:3" id="67k-qm-RhX"/>
                                 </constraints>
@@ -51,10 +59,10 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="xch-iJ-dL2">
-                                <rect key="frame" x="20" y="750" width="350" height="60"/>
+                                <rect key="frame" x="20" y="724" width="353" height="60"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5ga-h4-utG" userLabel="No button">
-                                        <rect key="frame" x="0.0" y="0.0" width="165" height="60"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="166.66666666666666" height="60"/>
                                         <color key="backgroundColor" name="YP White (iOS)"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="ZdB-0k-Uyi"/>
@@ -75,7 +83,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lr8-3V-2E4" userLabel="Yes button">
-                                        <rect key="frame" x="185" y="0.0" width="165" height="60"/>
+                                        <rect key="frame" x="186.66666666666663" y="0.0" width="166.33333333333337" height="60"/>
                                         <color key="backgroundColor" name="YP White (iOS)"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="60" id="RFZ-R6-eTx"/>
@@ -101,7 +109,7 @@
                                 </constraints>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Рейтинг этого фильма больше чем 6?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5ge-jq-SLd" userLabel="Question Label">
-                                <rect key="frame" x="43" y="652" width="304" height="78"/>
+                                <rect key="frame" x="43" y="626" width="307" height="78"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="78" id="8b3-Lg-yai"/>
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="78" id="VTy-XB-oyB"/>
@@ -131,7 +139,9 @@
                     <connections>
                         <outlet property="counterLabel" destination="gLH-nf-TEJ" id="IUh-sd-rta"/>
                         <outlet property="imageView" destination="cpx-De-gsq" id="60r-XK-16H"/>
+                        <outlet property="noButton" destination="5ga-h4-utG" id="LEo-Zh-95B"/>
                         <outlet property="textLabel" destination="5ge-jq-SLd" id="1qV-Ft-mfD"/>
+                        <outlet property="yesButton" destination="Lr8-3V-2E4" id="bz7-xC-qdp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

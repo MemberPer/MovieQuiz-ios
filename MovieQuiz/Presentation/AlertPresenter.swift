@@ -9,9 +9,9 @@ import Foundation
 import UIKit
 
 final class AlertPresenter {
-private weak var viewController: UIViewController?
+    weak var viewController: UIViewController?
     
-    init(viewController: UIViewController? = nil) {
+    init(viewController: UIViewController) {
         self.viewController = viewController
     }
     
@@ -21,9 +21,13 @@ private weak var viewController: UIViewController?
             message: model.message,
             preferredStyle: .alert
         )
-        let action = UIAlertAction(title: model.buttonText, style: .default) { _ in model.completion?()
-        }
+        
+        let action = UIAlertAction(
+            title: model.buttonText,
+            style: .default
+        ) { _ in model.completion() }
+        
         alert.addAction(action)
-        viewController?.present(alert, animated: true)
+        viewController?.present(alert, animated: true, completion: nil)
     }
 }

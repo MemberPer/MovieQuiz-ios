@@ -75,10 +75,10 @@ final class MovieQuizUITests: XCTestCase {
         }
         
         let alert = app.alerts["Game results"]
-        
+       
         XCTAssertTrue(alert.exists)
         XCTAssertTrue(alert.label == "Раунд окончен!")
-        XCTAssertTrue(alert.buttons.firstMatch.label == "Сыграть еще раз")
+        XCTAssertTrue(alert.buttons.firstMatch.label == "Сыграть ещё раз")
     }
     
     func testAlertDismiss() {

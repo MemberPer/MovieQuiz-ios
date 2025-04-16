@@ -5,13 +5,13 @@
 //  Created by Zahar Kryukov on 11.04.2025.
 //
 
-import Foundation
 import UIKit
 
 final class AlertPresenter {
-private weak var viewController: UIViewController?
     
-    init(viewController: UIViewController? = nil) {
+    weak var viewController: UIViewController?
+    
+    init(viewController: UIViewController) {
         self.viewController = viewController
     }
     
@@ -21,9 +21,14 @@ private weak var viewController: UIViewController?
             message: model.message,
             preferredStyle: .alert
         )
-        let action = UIAlertAction(title: model.buttonText, style: .default) { _ in model.completion?()
-        }
+        
+        let action = UIAlertAction(
+            title: model.buttonText,
+            style: .default
+        ) { _ in model.completion() }
+        
+        alert.view.accessibilityIdentifier = "Game results"
         alert.addAction(action)
-        viewController?.present(alert, animated: true)
+        viewController?.present(alert, animated: true, completion: nil)
     }
 }

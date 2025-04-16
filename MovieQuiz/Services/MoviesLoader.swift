@@ -17,7 +17,7 @@ struct MoviesLoader: MoviesLoading {
     
     init(networkClient: NetworkRouting = NetworkClient()) {
         self.networkClient = networkClient
-      }
+    }
     
     private var mostPopularMoviesUrl: URL {
         

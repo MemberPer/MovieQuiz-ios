@@ -5,11 +5,11 @@
 //  Created by Zahar Kryukov on 11.04.2025.
 //
 
-import Foundation
+import UIKit
 
 struct AlertModel {
-    var title: String
-    var message: String
+    let title: String
+    let message: String
     let buttonText: String
-    let completion: () -> Void?
+    let completion: () -> Void
 }

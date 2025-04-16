@@ -5,7 +5,7 @@
 //  Created by Zahar Kryukov on 11.04.2025.
 //
 
-import Foundation
+import UIKit
 
 final class StatisticService: StatisticServiceProtocol {
     private let storage: UserDefaults = .standard
@@ -28,19 +28,19 @@ final class StatisticService: StatisticServiceProtocol {
     }
     
     var gamesCount: Int {
-            get { storage.integer(forKey: Keys.gamesCount.rawValue) }
-            set { storage.set(newValue, forKey: Keys.gamesCount.rawValue) }
+        get { storage.integer(forKey: Keys.gamesCount.rawValue) }
+        set { storage.set(newValue, forKey: Keys.gamesCount.rawValue) }
     }
     
     var bestGame: GameResult {
         get { let correct = storage.integer(forKey: Keys.bestGameCorrect.rawValue)
-              let total = storage.integer(forKey: Keys.bestGameTotal.rawValue)
-              let date = storage.object(forKey: Keys.bestGameDate.rawValue) as? Date ?? Date()
-        return GameResult(correct: correct, total: total, date: date)
+            let total = storage.integer(forKey: Keys.bestGameTotal.rawValue)
+            let date = storage.object(forKey: Keys.bestGameDate.rawValue) as? Date ?? Date()
+            return GameResult(correct: correct, total: total, date: date)
         }
         set { storage.set(newValue.correct, forKey: Keys.bestGameCorrect.rawValue)
-              storage.set(newValue.total, forKey: Keys.bestGameTotal.rawValue)
-              storage.set(newValue.date, forKey: Keys.bestGameDate.rawValue)
+            storage.set(newValue.total, forKey: Keys.bestGameTotal.rawValue)
+            storage.set(newValue.date, forKey: Keys.bestGameDate.rawValue)
         }
     }
     func store(correct count: Int, total amount: Int) {
@@ -49,10 +49,10 @@ final class StatisticService: StatisticServiceProtocol {
         let currentTotal = storage.integer(forKey: Keys.total.rawValue)
         storage.set(currentCorrect + count, forKey: Keys.correct.rawValue)
         storage.set(currentTotal + amount, forKey: Keys.total.rawValue)
-    
+        
         let newGame = GameResult(correct: count, total: amount, date: Date())
         if newGame.isBetterThan(bestGame) {
-        bestGame = newGame
+            bestGame = newGame
         }
     }
 }

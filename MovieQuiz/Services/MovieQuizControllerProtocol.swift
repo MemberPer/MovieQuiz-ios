@@ -5,7 +5,7 @@
 //  Created by Zahar Kryukov on 14.04.2025.
 //
 
-import Foundation
+import UIKit
 
 protocol MovieQuizViewControllerProtocol: AnyObject {
     

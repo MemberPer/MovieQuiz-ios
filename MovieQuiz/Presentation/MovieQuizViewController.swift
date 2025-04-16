@@ -1,8 +1,8 @@
 import UIKit
 
-final class MovieQuizViewController: UIViewController, MovieQuizViewControllerProtocol {
+final class MovieQuizViewController: UIViewController, MovieQuizViewControllerProtocol{
     
-    //MARK: - Outlets
+    //MARK: - IB Outlets
     
     @IBOutlet private var imageView: UIImageView!
     @IBOutlet private var textLabel: UILabel!
@@ -18,7 +18,7 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
     private var questionFactory: QuestionFactory?
     private var statisticService: StatisticServiceProtocol?
     
-    //MARK: - Lifecycle
+    //MARK: - Overrides Methods
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,13 +31,22 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
         showLoadingIndicator()
     }
     
+    //MARK: - IB Actions
+    
+    @IBAction private func yesButtonClicked(_ sender: UIButton) {
+        presenter.yesButtonClicked()
+    }
+    @IBAction private func noButtonClicked(_ sender: UIButton) {
+        presenter.noButtonClicked()
+    }
+    
     //MARK: - Public Methods
     
     func highlightImageBorder(isCorrectAnswer: Bool) {
         imageView.layer.masksToBounds = true
         imageView.layer.borderWidth = 8
         imageView.layer.borderColor = isCorrectAnswer ? UIColor.ypGreen.cgColor : UIColor.ypRed.cgColor
-     }
+    }
     func resetImageBorder() {
         imageView.layer.borderWidth = 0
     }
@@ -68,29 +77,32 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
         imageView.image = step.image
         counterLabel.text = step.questionNumber
         textLabel.text = step.question
-     }
+    }
     
     func showNetworkError(message: String) {
         hideLoadingIndicator()
-        let model = AlertModel(title: "Ошибка",
-                               message: message,
-                               buttonText: "Попробовать еще раз") { [weak self] in
-            
-            guard let self = self else { return }
-
-            self.presenter.restartGame()
-            self.presenter.loadData()
+        
+        let model = AlertModel(
+            title: "Ошибка",
+            message: message,
+            buttonText: "Попробовать еще раз") { [weak self] in
+                guard let self = self else { return }
+                
+                self.presenter.restartGame()
+                self.presenter.loadData()
             }
+        
         alertPresenter?.showAlert(model: model)
     }
     
     //MARK: - Private Methods
+    
     private func setupUI() {
         setupImageView()
         setupButtonStyle(yesButton)
         setupButtonStyle(noButton)
     }
-
+    
     private func setupImageView() {
         imageView.layer.cornerRadius = 20
         imageView.clipsToBounds = true
@@ -101,14 +113,5 @@ final class MovieQuizViewController: UIViewController, MovieQuizViewControllerPr
     private func setupButtonStyle(_ button: UIButton) {
         button.layer.cornerRadius = 15
         button.layer.masksToBounds = true
-    }
-    
-    //MARK: - Actions
-    
-    @IBAction private func yesButtonClicked(_ sender: UIButton) {
-        presenter.yesButtonClicked()
-    }
-    @IBAction private func noButtonClicked(_ sender: UIButton) {
-        presenter.noButtonClicked()
     }
 }

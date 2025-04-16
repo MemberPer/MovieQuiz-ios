@@ -51,24 +51,24 @@ final class MoviesLoaderTests: XCTestCase {
         waitForExpectations(timeout: 1)
     }
 }
+
+struct StubNetworkClient: NetworkRouting {
     
-    struct StubNetworkClient: NetworkRouting {
-        
-        enum TestError: Error {
-            case test
+    enum TestError: Error {
+        case test
+    }
+    
+    let emulateError: Bool
+    
+    func fetch(url: URL, handler: @escaping (Result<Data, Error>) -> Void) {
+        if emulateError {
+            handler(.failure(TestError.test))
+        } else {
+            handler(.success(expectedResponse))
         }
-        
-        let emulateError: Bool
-        
-        func fetch(url: URL, handler: @escaping (Result<Data, Error>) -> Void) {
-            if emulateError {
-                handler(.failure(TestError.test))
-            } else {
-                handler(.success(expectedResponse))
-            }
-        }
-        
-        private var expectedResponse: Data {
+    }
+    
+    private var expectedResponse: Data {
         """
         {  "errorMessage" : "",
            "items" : [
@@ -99,5 +99,5 @@ final class MoviesLoaderTests: XCTestCase {
             ]
           }
         """.data(using: .utf8) ?? Data()
-        }
     }
+}

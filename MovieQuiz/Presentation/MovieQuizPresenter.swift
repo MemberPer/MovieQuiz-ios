@@ -8,7 +8,11 @@
 import UIKit
 
 final class MovieQuizPresenter: QuestionFactoryDelegate {
- 
+    
+    // MARK: - Public Properties
+    
+    weak var viewController: MovieQuizViewControllerProtocol?
+    
     // MARK: - Private Properties
     
     private var currentQuestion: QuizQuestion?
@@ -19,11 +23,7 @@ final class MovieQuizPresenter: QuestionFactoryDelegate {
     private var currentQuestionIndex: Int = 0
     private var correctAnswers = 0
     
-    // MARK: - Weak Properties
-    
-    weak var viewController: MovieQuizViewControllerProtocol?
-    
-    // MARK: - Initializer
+    // MARK: - Initializers
     
     init(viewController: MovieQuizViewControllerProtocol) {
         self.viewController = viewController
@@ -107,36 +107,36 @@ final class MovieQuizPresenter: QuestionFactoryDelegate {
         }
         viewController?.highlightImageBorder(isCorrectAnswer: isCorrect)
         viewController?.disableButtons()
-
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) { [weak self] in
             guard let self = self else {
                 return
             }
-        self.proceedToNextQuestionOrResults()
+            self.proceedToNextQuestionOrResults()
         }
     }
     
     private func proceedToNextQuestionOrResults() {
         guard let viewController = viewController else { return }
         viewController.resetImageBorder()
-
+        
         if currentQuestionIndex < questionsAmount - 1 {
             switchToNextQuestion()
             questionFactory?.requestNextQuestion()
         } else {
             let message = makeResultsMessage()
-
+            
             let alertModel = AlertModel(
                 title: "Раунд окончен!",
                 message: message,
                 buttonText: "Сыграть ещё раз",
                 completion: { [weak self] in
-                        guard let self = self else { return }
+                    guard let self = self else { return }
                     
-                        self.restartGame()
-                        self.questionFactory?.requestNextQuestion()
-                    }
-               )
+                    self.restartGame()
+                    self.questionFactory?.requestNextQuestion()
+                }
+            )
             viewController.showAlert(model: alertModel)
         }
     }

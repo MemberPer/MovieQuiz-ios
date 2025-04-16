@@ -5,7 +5,7 @@
 //  Created by Zahar Kryukov on 11.04.2025.
 //
 
-import Foundation
+import UIKit
 
 struct GameResult {
     let correct: Int
@@ -13,6 +13,6 @@ struct GameResult {
     let date: Date
     
     func isBetterThan(_ another: GameResult) -> Bool {
-         correct > another.correct
+        correct > another.correct
     }
 }
